@@ -36,51 +36,51 @@ namespace ApplicationTest.Models
 
             // Определение связи между таблицей Dimension и Model:
             modelBuilder.Entity<Dimension>()
-                .HasOne(d => d.Model) // У каждого измерения (Dimension) есть одна модель (Model)
-                .WithMany(m => m.Dimensions) // У каждой модели (Model) может быть много измерений (Dimensions)
-                .HasForeignKey(d => d.ModelID); // Внешний ключ в таблице Dimension, указывающий на ID модели
+                .HasOne(d => d.Model) 
+                .WithMany(m => m.Dimensions) 
+                .HasForeignKey(d => d.ModelID); 
 
             // Определение связи между таблицей Key и Model:
             modelBuilder.Entity<Key>()
-                .HasOne(k => k.Model) // У каждого ключа (Key) есть одна модель (Model)
-                .WithMany(m => m.Keys) // У каждой модели (Model) может быть много ключей (Keys)
-                .HasForeignKey(k => k.ModelID); // Внешний ключ в таблице Key, указывающий на ID модели
+                .HasOne(k => k.Model)
+                .WithMany(m => m.Keys) 
+                .HasForeignKey(k => k.ModelID); 
 
             // Определение связи между таблицей Value и Model:
             modelBuilder.Entity<Value>()
-                .HasOne(v => v.Model) // У каждого значения (Value) есть одна модель (Model)
-                .WithMany(m => m.Values) // У каждой модели (Model) может быть много значений (Values)
-                .HasForeignKey(v => v.ModelID); // Внешний ключ в таблице Value, указывающий на ID модели
+                .HasOne(v => v.Model) 
+                .WithMany(m => m.Values) 
+                .HasForeignKey(v => v.ModelID); 
 
             // Определение связи между таблицей Index и Model:
             modelBuilder.Entity<Index>()
-                .HasOne(i => i.Model) // У каждого индекса (Index) есть одна модель (Model)
-                .WithMany(m => m.Indices) // У каждой модели (Model) может быть много индексов (Indexes)
-                .HasForeignKey(i => i.ModelID); // Внешний ключ в таблице Index, указывающий на ID модели
+                .HasOne(i => i.Model) 
+                .WithMany(m => m.Indices) 
+                .HasForeignKey(i => i.ModelID);
 
             // Определение связи между таблицей Calculation и Model:
             modelBuilder.Entity<Calculation>()
-                .HasOne(c => c.Model) // У каждого вычисления (Calculation) есть одна модель (Model)
-                .WithMany(m => m.Calculations) // У каждой модели (Model) может быть много вычислений (Calculations)
-                .HasForeignKey(c => c.ModelID); // Внешний ключ в таблице Calculation, указывающий на ID модели
+                .HasOne(c => c.Model) 
+                .WithMany(m => m.Calculations) 
+                .HasForeignKey(c => c.ModelID); 
 
             // Определение связи между таблицей ParametrValues и Task:
             modelBuilder.Entity<ParametrValues>()
-                .HasOne(pv => pv.Task) // У каждого значения параметра (ParametrValues) есть одна задача (Task)
-                .WithMany(t => t.ParametrValues) // У каждой задачи (Task) может быть много значений параметров (ParametrValues)
-                .HasForeignKey(pv => pv.TaskID); // Внешний ключ в таблице ParametrValues, указывающий на ID задачи
+                .HasOne(pv => pv.Task) 
+                .WithMany(t => t.ParametrValues) 
+                .HasForeignKey(pv => pv.TaskID); 
 
             // Определение связи между таблицей ParametrValues и Dimension:
             modelBuilder.Entity<ParametrValues>()
-                .HasOne(pv => pv.Dimension) // У каждого значения параметра (ParametrValues) есть одно измерение (Dimension)
-                .WithMany(d => d.ParametrValues) // У каждого измерения (Dimension) может быть много значений параметров (ParametrValues)
-                .HasForeignKey(pv => pv.DimensionID); // Внешний ключ в таблице ParametrValues, указывающий на ID измерения
+                .HasOne(pv => pv.Dimension) 
+                .WithMany(d => d.ParametrValues)
+                .HasForeignKey(pv => pv.DimensionID); 
 
             // Определение связи между таблицей Key и Dimension:
             modelBuilder.Entity<Key>()
-                .HasOne(k => k.Dimension) // У каждого ключа (Key) есть одно измерение (Dimension)
-                .WithMany(d => d.Keys) // У каждого измерения (Dimension) может быть много ключей (Keys)
-                .HasForeignKey(k => k.DimensionID); // Внешний ключ в таблице Key, указывающий на ID измерения
+                .HasOne(k => k.Dimension)
+                .WithMany(d => d.Keys) 
+                .HasForeignKey(k => k.DimensionID); 
         }
     }
 }
